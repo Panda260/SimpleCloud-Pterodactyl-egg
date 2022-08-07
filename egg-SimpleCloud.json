@@ -1,0 +1,44 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2022-08-07T02:02:54+02:00",
+  "name": "SimpleCloud",
+  "author": "support@NeverStopGaming.net",
+  "description": null,
+  "features": null,
+  "docker_images": {
+    "ghcr.io\/pterodactyl\/yolks:java_17": "ghcr.io\/pterodactyl\/yolks:java_17",
+    "ghcr.io\/pterodactyl\/yolks:java_16": "ghcr.io\/pterodactyl\/yolks:java_16",
+    "ghcr.io\/pterodactyl\/yolks:java_11": "ghcr.io\/pterodactyl\/yolks:java_11"
+  },
+  "file_denylist": [],
+  "startup": "java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:CompileThreshold=100 -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -Dterminal.jline=false -Dterminal.ansi=true -Xmx512m -Xms256m -jar runner.jar --disable-auto-updater --start-application={{TYPE}} --wrapper-ram InternalWrapper={{SERVER_MEMORY}}",
+  "config": {
+    "files": "{}",
+    "startup": "{\r\n    \"done\": \"InternalWrapper logged in\"\r\n}",
+    "logs": "{\r\n    \"custom\": false,\r\n    \"location\": \"logs\/latest.log\"\r\n}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!\/bin\/bash\r\n\r\napt update\r\napt install -y git curl unzip\r\n\r\nmkdir -p \/mnt\/server\r\nexport HOME=\/mnt\/server\r\n\r\ncd \/mnt\/server\r\n\r\necho DOWNLOAD!\r\n#curl https:\/\/github.com\/NeverStopGaming\/SimpleCloud-Pterodactyl-egg\/download\/SimpleCloud.zip --output SimpleCloud.zip\r\ncurl -o \/mnt\/server\/SimpleCloud.zip -Li https:\/\/NeverStopGaming.net\/download\/SimpleCloud.zip\r\n\r\necho UNZIP!\r\nunzip SimpleCloud.zip\r\n\r\n\r\necho GIVE PERMISSIONS!\r\nchmod 777 runner.jar\r\nchmod 777 launcher.jar\r\nchmod 777 storage\/base.jar\r\n\r\nrm -r SimpleCloud.zip\r\n\r\neco Finish!",
+      "container": "debian:buster-slim",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Manager oder Wrapper",
+      "description": "",
+      "env_variable": "TYPE",
+      "default_value": "MANAGER",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "string|max:7|min:7",
+      "field_type": "text"
+    }
+  ]
+}
