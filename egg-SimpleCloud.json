@@ -4,10 +4,10 @@
     "version": "PTDL_v2",
     "update_url": null
   },
-  "exported_at": "2022-08-07T16:53:00+02:00",
+  "exported_at": "2022-09-10T20:34:33+02:00",
   "name": "SimpleCloud",
   "author": "support@NeverStopGaming.net",
-  "description": null,
+  "description": "Version: 1.0\r\nthe SimpleCloud-Pterodactyl-egg is an egg which runs the SimpleCloud software inside of Pterodactyl",
   "features": null,
   "docker_images": {
     "ghcr.io\/pterodactyl\/yolks:java_17": "ghcr.io\/pterodactyl\/yolks:java_17",
@@ -20,18 +20,18 @@
     "files": "{}",
     "startup": "{\r\n    \"done\": \"InternalWrapper logged in\"\r\n}",
     "logs": "{\r\n    \"custom\": false,\r\n    \"location\": \"logs\/latest.log\"\r\n}",
-    "stop": "^C"
+    "stop": "stop"
   },
   "scripts": {
     "installation": {
-      "script": "#!\/bin\/bash\r\n\r\napt update\r\napt install -y curl unzip\r\n\r\nmkdir -p \/mnt\/server\r\nexport HOME=\/mnt\/server\r\n\r\ncd \/mnt\/server\r\n\r\necho DOWNLOAD!\r\ncurl -o \/mnt\/server\/SimpleCloud.zip -Li https:\/\/github.com\/NeverStopGaming\/SimpleCloud-Pterodactyl-egg\/blob\/main\/download\/SimpleCloud.zip?raw=true\r\n\r\necho UNZIP!\r\nunzip SimpleCloud.zip\r\n\r\n\r\necho GIVE PERMISSIONS!\r\nchmod 777 runner.jar\r\nchmod 777 launcher.jar\r\nchmod 777 storage\/base.jar\r\n\r\nrm -r SimpleCloud.zip\r\n\r\necho Finish!",
+      "script": "#!\/bin\/bash\r\napt update\r\napt install -y curl unzip\r\n\r\nmkdir -p \/mnt\/server\r\nexport HOME=\/mnt\/server\r\ncd \/mnt\/server\r\n\r\ncurl -o \/mnt\/server\/SimpleCloud.zip -Li https:\/\/github.com\/NeverStopGaming\/SimpleCloud-Pterodactyl-egg\/blob\/main\/download\/SimpleCloud.zip?raw=true\r\n\r\nunzip SimpleCloud.zip\r\n\r\nchmod 777 runner.jar\r\nchmod 777 launcher.jar\r\nchmod 777 storage\/base.jar\r\n\r\nrm -r SimpleCloud.zip\r\n\r\necho Finish!",
       "container": "debian:buster-slim",
       "entrypoint": "bash"
     }
   },
   "variables": [
     {
-      "name": "Manager oder Wrapper",
+      "name": "Manager or Wrapper",
       "description": "",
       "env_variable": "TYPE",
       "default_value": "MANAGER",
