@@ -24,7 +24,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/bash\r\napt update\r\napt install -y curl unzip\r\n\r\nmkdir -p \/mnt\/server\r\nexport HOME=\/mnt\/server\r\ncd \/mnt\/server\r\n\r\ncurl -o \/mnt\/server\/SimpleCloud-Latest.zip -Li https:\/\/github.com\/theSimpleCloud\/SimpleCloud\/releases\/latest\/download\/SimpleCloud-Latest.zip?raw=true\r\ncurl -o \/mnt\/server\/SimpleCloud.zip -Li https:\/\/github.com\/NeverStopGaming\/SimpleCloud-Pterodactyl-egg\/blob\/main\/download\/SimpleCloud.zip?raw=true\r\n\r\nunzip SimpleCloud-Latest.zip\r\nunzip SimpleCloud.zip\r\n\r\nchmod 777 runner.jar\r\nchmod 777 launcher.jar\r\nchmod 777 storage\/base.jar\r\n\r\nrm -r SimpleCloud.zip\r\nrm -r SimpleCloud-Latest.zip\r\n\r\necho Finish!",
+            "script": "#!\/bin\/bash\r\napt update\r\napt install -y curl unzip\r\n\r\nmkdir -p \/mnt\/server\r\nexport HOME=\/mnt\/server\r\ncd \/mnt\/server\r\n\r\ncurl -o \/mnt\/server\/SimpleCloud-Latest.zip -Li https:\/\/github.com\/theSimpleCloud\/SimpleCloud\/releases\/latest\/download\/SimpleCloud-v2.7.0.zip?raw=true\r\ncurl -o \/mnt\/server\/SimpleCloud.zip -Li https:\/\/github.com\/NeverStopGaming\/SimpleCloud-Pterodactyl-egg\/blob\/main\/download\/SimpleCloud.zip?raw=true\r\n\r\nunzip SimpleCloud-Latest.zip\r\nunzip SimpleCloud.zip\r\n\r\nchmod 777 runner.jar\r\nchmod 777 launcher.jar\r\nchmod 777 storage\/base.jar\r\n\r\nrm -r SimpleCloud.zip\r\nrm -r SimpleCloud-Latest.zip\r\n\r\necho Finish!",
             "container": "debian:buster-slim",
             "entrypoint": "bash"
         }
