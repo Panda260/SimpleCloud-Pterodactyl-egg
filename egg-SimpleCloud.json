@@ -7,7 +7,7 @@
     "exported_at": "2023-12-22T21:25:14+01:00",
     "name": "SimpleCloud",
     "author": "support@NeverStopGaming.net",
-    "description": "Version: 1.0\r\nthe SimpleCloud-Pterodactyl-egg is an egg which runs the SimpleCloud software inside of Pterodactyl",
+    "description": "Version: 2.0\r\nthe SimpleCloud-Pterodactyl-egg is an egg which runs the SimpleCloud software inside of Pterodactyl",
     "features": null,
     "docker_images": {
         "ghcr.io\/pterodactyl\/yolks:java_17": "ghcr.io\/pterodactyl\/yolks:java_17",
