@@ -14,4 +14,6 @@
 3. Select the **egg-SimpleCloud.json** file and chose your **nest**. Then click **Import**.
 4. Now you can create a new server with the **SimpleCloud-Pterodactyl-egg**.
 
-Note: You only need to enable one port for the cloud to work but if you want to use the [SimpleCloud-dashboard](http://dashboard-nossl.thesimplecloud.eu/) you need to enable a second port and edit it in `modules/rest/config.json`
+Note: You only need to enable one port for the cloud to work but if you want to use the [SimpleCloud-dashboard](http://dashboard-nossl.thesimplecloud.eu/) you need to enable a second port and edit it in `modules/rest/config.json`.
+
+In order to join the server, your proxy port in `groups/proxies/proxy.json` must match the port you have enabled in Pterodactyl Network tab.
