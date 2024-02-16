@@ -4,18 +4,21 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2023-12-22T21:25:14+01:00",
+    "exported_at": "2024-02-16T17:33:20+01:00",
     "name": "SimpleCloud",
     "author": "support@NeverStopGaming.net",
-    "description": "Version: 2.0\r\nthe SimpleCloud-Pterodactyl-egg is an egg which runs the SimpleCloud software inside of Pterodactyl",
+    "description": "Version: 2.1\r\nthe SimpleCloud-Pterodactyl-egg is an egg which runs the SimpleCloud software inside of Pterodactyl",
     "features": null,
     "docker_images": {
+        "ghcr.io\/pterodactyl\/yolks:java_21": "ghcr.io\/pterodactyl\/yolks:java_21",
+        "ghcr.io\/pterodactyl\/yolks:java_19": "ghcr.io\/pterodactyl\/yolks:java_19",
+        "ghcr.io\/pterodactyl\/yolks:java_18": "ghcr.io\/pterodactyl\/yolks:java_18",
         "ghcr.io\/pterodactyl\/yolks:java_17": "ghcr.io\/pterodactyl\/yolks:java_17",
         "ghcr.io\/pterodactyl\/yolks:java_16": "ghcr.io\/pterodactyl\/yolks:java_16",
         "ghcr.io\/pterodactyl\/yolks:java_11": "ghcr.io\/pterodactyl\/yolks:java_11"
     },
     "file_denylist": [],
-    "startup": "java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:CompileThreshold=100 -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -Dterminal.jline=false -Dterminal.ansi=true -Xmx512m -Xms256m -jar runner.jar --start-application={{TYPE}} --wrapper-ram InternalWrapper={{SERVER_MEMORY}}",
+    "startup": "java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:CompileThreshold=100 -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -Dterminal.jline=false -Dterminal.ansi=true -Xmx512m -Xms256m -jar runner.jar --start-application={{TYPE}} --wrapper-ram InternalWrapper=$(({{SERVER_MEMORY}}-1024))",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"InternalWrapper logged in\"\r\n}",
