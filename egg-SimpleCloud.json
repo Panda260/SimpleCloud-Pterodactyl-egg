@@ -4,18 +4,17 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-02-16T17:33:20+01:00",
+    "exported_at": "2024-10-23T23:07:53+02:00",
     "name": "SimpleCloud",
     "author": "support@NeverStopGaming.net",
-    "description": "Version: 2.1\r\nthe SimpleCloud-Pterodactyl-egg is an egg which runs the SimpleCloud software inside of Pterodactyl",
+    "description": "Version: 2.2\r\nthe SimpleCloud-Pterodactyl-egg is an egg which runs the SimpleCloud software inside of Pterodactyl",
     "features": null,
     "docker_images": {
-        "ghcr.io\/pterodactyl\/yolks:java_21": "ghcr.io\/pterodactyl\/yolks:java_21",
-        "ghcr.io\/pterodactyl\/yolks:java_19": "ghcr.io\/pterodactyl\/yolks:java_19",
-        "ghcr.io\/pterodactyl\/yolks:java_18": "ghcr.io\/pterodactyl\/yolks:java_18",
-        "ghcr.io\/pterodactyl\/yolks:java_17": "ghcr.io\/pterodactyl\/yolks:java_17",
-        "ghcr.io\/pterodactyl\/yolks:java_16": "ghcr.io\/pterodactyl\/yolks:java_16",
-        "ghcr.io\/pterodactyl\/yolks:java_11": "ghcr.io\/pterodactyl\/yolks:java_11"
+        "Java 21": "ghcr.io\/pterodactyl\/yolks:java_21",
+        "Java 17": "ghcr.io\/pterodactyl\/yolks:java_17",
+        "Java 16": "ghcr.io\/pterodactyl\/yolks:java_16",
+        "Java 11": "ghcr.io\/pterodactyl\/yolks:java_11",
+        "Java 8": "ghcr.io\/pterodactyl\/yolks:java_8"
     },
     "file_denylist": [],
     "startup": "java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:CompileThreshold=100 -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -Dterminal.jline=false -Dterminal.ansi=true -Xmx512m -Xms256m -jar runner.jar --start-application={{TYPE}} --wrapper-ram InternalWrapper=$(({{SERVER_MEMORY}}-1024))",
@@ -27,7 +26,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/bash\r\napt update\r\napt install -y curl unzip\r\n\r\nmkdir -p \/mnt\/server\r\nexport HOME=\/mnt\/server\r\ncd \/mnt\/server\r\n\r\ncurl -o \/mnt\/server\/SimpleCloud-Latest.zip -Li https:\/\/github.com\/theSimpleCloud\/SimpleCloud\/releases\/download\/v2.7.1\/SimpleCloud-v2.7.1.zip?raw=true\r\ncurl -o \/mnt\/server\/SimpleCloud.zip -Li https:\/\/github.com\/NeverStopGaming\/SimpleCloud-Pterodactyl-egg\/blob\/main\/download\/SimpleCloud.zip?raw=true\r\n\r\nunzip SimpleCloud-Latest.zip\r\nunzip SimpleCloud.zip\r\n\r\nchmod 777 runner.jar\r\nchmod 777 launcher.jar\r\nchmod 777 storage\/base.jar\r\n\r\nrm -r SimpleCloud.zip\r\nrm -r SimpleCloud-Latest.zip\r\n\r\necho Finish!",
+            "script": "#!\/bin\/bash\r\napt update\r\napt install -y curl unzip\r\n\r\nmkdir -p \/mnt\/server\r\nexport HOME=\/mnt\/server\r\ncd \/mnt\/server\r\n\r\ncurl -o \/mnt\/server\/SimpleCloud-Latest.zip -Li https:\/\/github.com\/theSimpleCloud\/SimpleCloud\/releases\/download\/v2.8.1\/SimpleCloud-v2.8.1.zip?raw=true\r\ncurl -o \/mnt\/server\/SimpleCloud.zip -Li https:\/\/github.com\/NeverStopGaming\/SimpleCloud-Pterodactyl-egg\/blob\/main\/download\/SimpleCloud.zip?raw=true\r\n\r\nunzip SimpleCloud-Latest.zip\r\nunzip SimpleCloud.zip\r\n\r\nchmod 777 runner.jar\r\nchmod 777 launcher.jar\r\nchmod 777 storage\/base.jar\r\n\r\nrm -r SimpleCloud.zip\r\nrm -r SimpleCloud-Latest.zip\r\n\r\necho Finish!",
             "container": "debian:buster-slim",
             "entrypoint": "bash"
         }
